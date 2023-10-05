@@ -1,0 +1,15 @@
+{% extends 'moneytracker/base.html' %}
+
+{% block content %}
+<h1>Income</h1>
+  <div class="dropdown show">
+    <a class="btn btn-secondary btn-lg dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true">
+        Choose yours</a>
+
+    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+      {% for income in income_list %}
+        <a class="dropdown-item" href="{% url "moneytracker:expense" pk=income.pk %}">{{ income }}</a>
+      {% endfor %}
+    </div>
+  </div>
+{% endblock %}
